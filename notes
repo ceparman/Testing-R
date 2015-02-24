@@ -1,0 +1,34 @@
+
+Discusses using miniCran for package dependency mapping
+ 
+http://blog.revolutionanalytics.com/2014/07/index.html
+
+Coulds include chapter on package manangement, pakrat, miniCran,
+
+Packages testthat, tester, testcoverage
+http://www.r-statistics.com/2014/11/analyzing-coverage-of-r-unit-tests-in-packages-the-testcoverage-package/
+
+tester - tests for comparision
+testit test packages - very simle test package, limited functionality
+testthat
+testthatsomemore
+
+svUnit - maybe inactive
+
+quickcheck - https://github.com/RevolutionAnalytics/quickcheck/blob/master/docs/tutorial.md uses random numbers for testing
+
+ 
+codetools
+
+profiler??
+
+RUnit  - http://www.johnmyleswhite.com/notebook/2010/08/17/unit-testing-in-r-the-bare-minimum/
+
+
+devtools
+tools ???
+Good Articles
+
+http://stackoverflow.com/questions/2547447/what-is-the-current-state-of-unit-testing-support-in-the-r-language
+
+
