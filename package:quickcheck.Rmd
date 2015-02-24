@@ -46,7 +46,7 @@ rdouble()
 
 ```
 
-
+ 
 In the first case we get 13 values and in the second we get 9.  We can further control the number generation with the element and size parameters. The element value sets expectation of the values and size sets the average number of values returned as displayed below.
 
 
