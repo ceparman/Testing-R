@@ -120,9 +120,6 @@ length(set2)
 
 
 
-The power of quickcheck comes from you can pass a
-
-
 
 ####Usage
 
@@ -152,7 +149,7 @@ Below is the list of buitl in generators.  There are atomic, 2 dimensional, and 
 | rraw        | raw values        | rraw(element = as.raw(0:255), size = 10)               |
 
 
-You have the ability to fine tune the generators with the size and element parameters.  The element parameter can be used to control the values goint into the list.  The values for element can be a single value, a vector, or a random nubmer generator.  
+You have the ability to fine tune the generators with the size and element parameters.  The element parameter can be used to control the values goint into the list.  The values for element can be a single value, a vector, or a random number generator.  
 
 
 ```{r}
@@ -214,10 +211,12 @@ select(c(1,TRUE,"gg",4),replace=TRUE)(size=10)
 
 #### Constructing custom generators
 
-rdouble(element = runif)
+The built in generator can be used to contruct a new generator.  For examples we can combine use mixture to create a list with integers and characters. 
 
-rdouble(element = ~runif(size, min = -1))
-
+```{r}
+set.seed(0)
+rlist(mixture(list(rinteger,rcharacter)),size=constant(3))
+```
 
 Let say we need a generator that constructs a matrix of integers.  We can use the rinteger generator to create the values for the matrix.  We must fix the length of the values returned by rinteger to nrow*ncol so we don't recycle values.  We will call the new function rIntMatrix
 
