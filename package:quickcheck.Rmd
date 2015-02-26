@@ -126,38 +126,83 @@ The power of quickcheck comes from you can pass a
 
 ####Usage
 
-###generators
+###Generators
 
-| Generator   | Elements          | Usage                                               |
-|------------ |-----------------  | ----------------------------------------------------|
-| rany        | all generators    | rany() , rany(list(rdouble,rinteger))               |
-| rcharacter  | characters        | rcharacter(element = 10, size = 10)                 |
-| rfactor     | factors           | rfactor(element = 10, size = 10)                    |
-| constant    | constant value    | constant(const = 3)()                               |
-| rdata.frame | data.frame        | rdata.frame(element = ratomic, nrow = 10, ncol = 5) |
-| rmatrix     | matrix of atomics | rmatrix(element, nrow, ncol)                        |
-| ratomic     | atomics           | ratomic(element = atomic.generators, size = 10)     |
-| rdouble     | doubles           | rdouble(element = 0, size = 10)                     |
-| rinteger    | integers          | rinteger(element = 100, size = 10)                  |
-| rnumeric    | all numerics      | rnumeric(element = 100, size = 10)                  |
-| rlist       | list of atomics   | rlist(), rlist(element=list(rdouble(siz=2)))        |
-| rlogical    | logicals          | rlogical(element = 0.5, size = 10)                  |
-| rraw        | raws              | rraw(element = as.raw(0:255), size = 10)            |
+Generator ceate the values that are tested against.  There are built in generators for most data types.  If needed custom generators can be generated for cases where specific values, or mixed types are needed.  On thing to keep in min is that these generators not only return randome values, but also random numbers of values.  This can be overridden, but the default behavior is to return an random number of random variable as defined by the call.
 
+#### Built in genertators
+
+Below is the list of buitl in generators.  There are atomic, 2 dimensional, and lists avaialble.  Then a type can consructed from a variaty of atomic types, each call to that generator will create a 
+
+| Generator   | Elements          | Usage                                                  |
+|------------ |-----------------  | -------------------------------------------------------|
+| rany        | all generators    | rany() , rany(list(rdouble,rinteger))                  |
+| rcharacter  | characters        | rcharacter(element = 10, size = 10)                    |
+| rfactor     | factors           | rfactor(element = 10, size = 10)                       |
+| constant    | constant value    | constant(const = 3)()                                  |
+| rdata.frame | data.frame        | rdata.frame(element = ratomic, nrow = 10, ncol = 5)    |
+| rmatrix     | matrix of atomics | rmatrix(element, nrow, ncol)                           |
+| ratomic     | atomics           | ratomic(element = atomic.generators, size = 10)        |
+| rdouble     | doubles           | rdouble(element = 0, size = 10)                        |
+| rDate       | Dates             | rDates(element = list(from=Sys.Date()-10,to=Sys.Date())|
+| rinteger    | integers          | rinteger(element = 100, size = 10)                     |
+| rnumeric    | all numerics      | rnumeric(element = 100, size = 10)                     |
+| rlist       | list of atomics   | rlist(), rlist(element=list(rdouble(siz=2)))           |
+| rlogical    | logicals          | rlogical(element = 0.5, size = 10)                     |
+| rraw        | raw values        | rraw(element = as.raw(0:255), size = 10)               |
+
+
+You have the ability to fine tune the generators with the size and element parameters.  The element parameter can be used to control the values goint into the list.  The values for element can be a single value, a vector, or a random nubmer generator.  
+
+
+```{r}
+
+rinteger(element = 30:50,size =10 )
+
+rdouble(element = rnorm(10,mean=2,sd=.2),siz=20 )
+
+```
 
 
 There are two helper function for generators.  The first is `mixture`.   'Mixture' creates a random generator that creates an equally weighted mixture distribution of the generators.
-Repeated calls will randomly generate vaules of one one the generators.
+Repeated calls will randomly generate vaules of one one the generators. you can also use a formula syntax to pass parameters to the generating function as shown in the last example.  This allows us to ensure that exactly size number of values are returned otherwise recycling is used. 
 
 ```{r}
+
 set.seed(0)
 
 mixture(list(rlogical,rcharacter))() 
 
 mixture(list(rlogical,rcharacter))() 
 
+#pass the size parameter to runif 
+
+rdouble(element = ~runif(size, min = -1))
+
 
 ```
+
+The `size` parameter can be used to control the expectation for the number of elements returned.  Ror example `rdouble(size = 100)' would eturn vectors of doubles with an aveage length of 100.  You can get an exact number of values by setting the size parameter with the constant function of the functional notation ~.
+
+```{r}
+
+rdouble(size = constant(4))
+
+rdouble(size = ~4)
+```
+
+For nested objects such as list you can add the height parameter.  This control the maximun depth of nesting.  For 2 dimentional obljects size is replaced with nrow and ncol, both with the same behavior as size.
+
+```{r}
+set.seed(0)
+
+rlist(height=4,size=2)
+
+rmatrix(nrow=~2,ncol=~4)
+
+```
+
+
 
 The function allows you to randomly select vaules from a vector of values with or without replacement.
 
@@ -167,5 +212,31 @@ select(c(1,TRUE,"gg",4),replace=TRUE)(size=10)
 
 ```
 
+#### Constructing custom generators
 
+rdouble(element = runif)
+
+rdouble(element = ~runif(size, min = -1))
+
+
+Let say we need a generator that constructs a matrix of integers.  We can use the rinteger generator to create the values for the matrix.  We must fix the length of the values returned by rinteger to nrow*ncol so we don't recycle values.  We will call the new function rIntMatrix
+
+
+```{r}
+
+rIntMatrix<-function(element=100,nrow=5,ncol=5)
+{
+  nr<-quickcheck:::rsize(nrow)
+  nc<-quickcheck:::rsize(ncol)
+
+ matrix( rinteger(element=element, size=constant(nc*nr)) ,nr,nc)  
+    
+}
+
+set.seed(0)
+
+rIntMatrix(element=50,nrow=4,ncol=5)
+
+
+```
 ###Examples
