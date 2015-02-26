@@ -78,6 +78,10 @@ t<-test(function(x=rdouble())FALSE, sample.size = 2, stop=FALSE)
 
 
 
+
+
+
+
 The generator, in this case `rdouble` can take on many different forms and the package provide serveral built in and a mechanism to create your own.
 
 In fact you not only get a random set of doubles, you get a randon number of values.  To see this lets run rdouble twice.  We will set the random number seed to 0 for reproducibility.
@@ -121,5 +125,47 @@ The power of quickcheck comes from you can pass a
 
 
 ####Usage
+
+###generators
+
+| Generator   | Elements          | Usage                                               |
+|------------ |-----------------  | ----------------------------------------------------|
+| rany        | all generators    | rany() , rany(list(rdouble,rinteger))               |
+| rcharacter  | characters        | rcharacter(element = 10, size = 10)                 |
+| rfactor     | factors           | rfactor(element = 10, size = 10)                    |
+| constant    | constant value    | constant(const = 3)()                               |
+| rdata.frame | data.frame        | rdata.frame(element = ratomic, nrow = 10, ncol = 5) |
+| rmatrix     | matrix of atomics | rmatrix(element, nrow, ncol)                        |
+| ratomic     | atomics           | ratomic(element = atomic.generators, size = 10)     |
+| rdouble     | doubles           | rdouble(element = 0, size = 10)                     |
+| rinteger    | integers          | rinteger(element = 100, size = 10)                  |
+| rnumeric    | all numerics      | rnumeric(element = 100, size = 10)                  |
+| rlist       | list of atomics   | rlist(), rlist(element=list(rdouble(siz=2)))        |
+| rlogical    | logicals          | rlogical(element = 0.5, size = 10)                  |
+| rraw        | raws              | rraw(element = as.raw(0:255), size = 10)            |
+
+
+
+There are two helper function for generators.  The first is `mixture`.   'Mixture' creates a random generator that creates an equally weighted mixture distribution of the generators.
+Repeated calls will randomly generate vaules of one one the generators.
+
+```{r}
+set.seed(0)
+
+mixture(list(rlogical,rcharacter))() 
+
+mixture(list(rlogical,rcharacter))() 
+
+
+```
+
+The function allows you to randomly select vaules from a vector of values with or without replacement.
+
+```{r}
+
+select(c(1,TRUE,"gg",4),replace=TRUE)(size=10)
+
+```
+
 
 ###Examples
