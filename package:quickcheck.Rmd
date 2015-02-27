@@ -70,7 +70,7 @@ t<-test(function()FALSE, sample.size = 2, stop=FALSE)
 
 In the output see that the test failed twice and there are 2 cases in the cases portion of the output list.
 
-```{r}
+```{r error=TRUE}
 
 t<-test(function(x=rdouble())FALSE, sample.size = 2, stop=FALSE)
 
@@ -119,6 +119,7 @@ length(set2)
 ```
 
 
+We will look at the generators more depply in the section in generators.
 
 
 ####Usage
@@ -238,4 +239,70 @@ rIntMatrix(element=50,nrow=4,ncol=5)
 
 
 ```
-###Examples
+
+
+###Defining Assertions
+
+
+The assertion you create with quickcheck can leverage the expectations from the testthat package.  Quickcheck used a set derived from the testthat package.  They use the same name exect thet the leading expect_ is removed. 
+
+##### Expect Types
+
+ equal            equal_to_reference   equivalent    error    false    
+ identical        is                   less_than     match    message  
+ more_than        named                null          output   that     
+ true             warning                                              
+
+
+| equal     | equal_to_reference | equivalent | error  | false   |
+|-----------|--------------------|------------|--------|---------|
+| identical | is                 | less_than  | match  | message |
+| more_than | named              | null       | output | that    |
+| true      |                    |            |        |         |
+
+
+Below are a few simple tests that use different expectations.
+
+
+```{r}
+
+test(function(x=rcharacter()) expect("error", 1/x ))
+
+test(function(x=rcharacter()) expect("named", data.frame(data=x) ))
+
+test(function(x=rcharacter()) expect("match", x,"[:alnum:]*" ))
+
+ test(function(x=rinteger()) expect("less_than",sum(x),sum(x+1)))
+```
+
+
+### Debugging Failed Tests
+
+Unfortunately your code will most likely not pass every test.  when a test fails quickcheck lets you know what failed and which specfic cases failed. Here is a test that is sure to fail,
+
+
+```{r error=TRUE}
+set.seed(0)
+test(function(x=rinteger()) expect("more_than",sum(x),sum(x+1)), stop = FALSE, sample.size=2)
+
+```
+
+We as expected the test failed and the test function reported which tests failed and the value for each case.  We can caputure this outout for later debuging.  Here the output is captured in out. The function repro loads this case and starts he debugger.
+
+```{r error=TRUE}
+set.seed(0)
+out = test(function(x=rinteger()) expect("more_than",sum(x),sum(x+1)), stop = TRUE ,sample.size=2)
+
+repro(out)
+
+```
+
+```{r error=TRUE}
+set.seed(0)
+test(function(x=rinteger()) expect("more_than",sum(x),sum(x+1)), stop = TRUE,sample.size=2)
+
+```
+
+With stop set to true we get a error message and a invetation to load a file that was automatically created. The file containt the cases from the failed tests in a variable called test.cases that can loaded with repro. 
+
+
