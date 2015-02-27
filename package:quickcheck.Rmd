@@ -2,7 +2,7 @@
 title: "quickcheck Package"
 author: "Craig Parman"
 date: "2/24/2015"
-output: html_document
+output: pdf_document
 ---
 
 ## *quickcheck* Package 
@@ -124,7 +124,7 @@ We will look at the generators more depply in the section in generators.
 
 ####Usage
 
-###Generators
+###Defining Generators
 
 Generator ceate the values that are tested against.  There are built in generators for most data types.  If needed custom generators can be generated for cases where specific values, or mixed types are needed.  On thing to keep in min is that these generators not only return randome values, but also random numbers of values.  This can be overridden, but the default behavior is to return an random number of random variable as defined by the call.
 
@@ -246,7 +246,7 @@ rIntMatrix(element=50,nrow=4,ncol=5)
 
 The assertion you create with quickcheck can leverage the expectations from the testthat package.  Quickcheck used a set derived from the testthat package.  They use the same name exect thet the leading expect_ is removed. 
 
-##### Expect Types
+##### Expectation Types in Quickcheck
 
  equal            equal_to_reference   equivalent    error    false    
  identical        is                   less_than     match    message  
@@ -254,14 +254,7 @@ The assertion you create with quickcheck can leverage the expectations from the 
  true             warning                                              
 
 
-| equal     | equal_to_reference | equivalent | error  | false   |
-|-----------|--------------------|------------|--------|---------|
-| identical | is                 | less_than  | match  | message |
-| more_than | named              | null       | output | that    |
-| true      |                    |            |        |         |
-
-
-Below are a few simple tests that use different expectations.
+The use of the test is pretty obvious.  Details for the specific cases can be found in the testthat help. Below are a few simple tests that use different expectations that highlight the usage.
 
 
 ```{r}
@@ -278,7 +271,7 @@ test(function(x=rcharacter()) expect("match", x,"[:alnum:]*" ))
 
 ### Debugging Failed Tests
 
-Unfortunately your code will most likely not pass every test.  when a test fails quickcheck lets you know what failed and which specfic cases failed. Here is a test that is sure to fail,
+Unfortunately your code will most likely not pass every test.  when a test fails quickcheck lets you know what failed and which specfic cases failed. Here is a test that is sure to fail.
 
 
 ```{r error=TRUE}
