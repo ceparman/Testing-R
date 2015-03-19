@@ -122,7 +122,18 @@ length(set2)
 We will look at the generators more depply in the section in generators.
 
 
-####Usage
+##Usage
+
+### Installing
+
+Currently the quickchecl package is available fro GitHub. With the devtools package you can install it directly from GitHub.
+
+```{r}
+
+library(devtools)
+install_github("RevolutionAnalytics/quickcheck@3.0.0", subdir = "pkg")`
+
+``
 
 ###Defining Generators
 
