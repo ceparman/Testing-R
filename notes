@@ -8,14 +8,12 @@ Coulds include chapter on package manangement, pakrat, miniCran,
 Packages testthat, tester, testcoverage
 http://www.r-statistics.com/2014/11/analyzing-coverage-of-r-unit-tests-in-packages-the-testcoverage-package/
 
-tester - tests for comparision
+tester - tests for comparision -draft done
 testit test packages - very simle test package, limited functionality
 testthat
 testthatsomemore
 
 svUnit - maybe inactive
-
-quickcheck - https://github.com/RevolutionAnalytics/quickcheck/blob/master/docs/tutorial.md uses random numbers for testing
 
 quickcheck - https://github.com/RevolutionAnalytics/quickcheck/blob/master/docs/tutorial.md uses random numbers for testing  - Draft complete
 https://github.com/RevolutionAnalytics/quickcheck
@@ -38,4 +36,4 @@ https://github.com/richierocks/runittotestthat  convert runit to testthat
 http://cran.r-project.org/web/packages/scriptests/scriptests.pdf
 
 
-coverage
+coverage install_github(“MangoTheCat/testCoverage”)
