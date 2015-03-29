@@ -3,7 +3,7 @@ title: "tester package"
 author: "Craig Parman"
 date: "3/16/2015"
 output: pdf_document
----
+--- 
 
 
 ###Introduction

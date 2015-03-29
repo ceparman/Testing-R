@@ -1,0 +1,75 @@
+Function	Description	Section
+testthat-package	R package to make testing fun!	
+auto_test	Watches code and tests for changes, rerunning tests as appropriate.	
+auto_test_package	Watches a package for changes, rerunning tests as appropriate.	
+colourise	Colourise text for display in the terminal.	
+context	Describe the context of a set of tests.	
+describe	describe: a BDD testing language	
+equals	Expectation: is the object equal (with numerical tolerance) to a value?	
+equals_reference	Expectation: is the object equal to a reference value stored in a file?	
+evaluate_promise	Evaluate a promise, capturing all types of output.	
+expect-compare	Expectation: is returned value less or greater than specified value?	
+expect_equal	Expectation: is the object equal (with numerical tolerance) to a value?	
+expect_equal_to_reference	Expectation: is the object equal to a reference value stored in a file?	
+expect_equivalent	Expectation: is the object equivalent to a value? This expectation tests for equivalency: are two objects equal once their attributes have been removed.	
+expect_error	Expectation: does expression throw an error?	
+expect_false	Expectation: is the object true/false?	
+expect_identical	Expectation: is the object identical to another?	
+expect_is	Expectation: does the object inherit from a class?	
+expect_less_than	Expectation: is returned value less or greater than specified value?	
+expect_match	Expectation: does string match regular expression?	
+expect_message	Expectation: does expression show a message?	
+expect_more_than	Expectation: is returned value less or greater than specified value?	
+expect_named	Expectation: does object have names?	
+expect_null	Expectation: is the object NULL?	
+expect_output	Expectation: does printed output match a regular expression?	
+expect_that	Expect that a condition holds.	
+expect_true	Expectation: is the object true/false?	
+expect_warning	Expectation: does expression give a warning?	
+fail	A default expectation that always fails.	
+gives_warning	Expectation: does expression give a warning?	
+has_names	Expectation: does object have names?	
+is_a	Expectation: does the object inherit from a class?	
+is_equivalent_to	Expectation: is the object equivalent to a value? This expectation tests for equivalency: are two objects equal once their attributes have been removed.	
+is_false	Expectation: is the object true/false?	
+is_identical_to	Expectation: is the object identical to another?	
+is_less_than	Expectation: is returned value less or greater than specified value?	
+is_more_than	Expectation: is returned value less or greater than specified value?	
+is_null	Expectation: is the object NULL?	
+is_true	Expectation: is the object true/false?	
+library_if_available	Load package, if available.	
+ListReporter	List reporter: gather all test results along with elapsed time and file information.	
+ListReporter-class	List reporter: gather all test results along with elapsed time and file information.	
+make_expectation	Make an equality test.	
+matches	Expectation: does string match regular expression?	
+MinimalReporter	Test reporter: minimal.	
+MinimalReporter-class	Test reporter: minimal.	
+MultiReporter	Multi reporter: combine several reporters in one.	
+MultiReporter-class	Multi reporter: combine several reporters in one.	
+not	Negate an expectation	
+prints_text	Expectation: does printed output match a regular expression?	
+Reporter	Stub object for managing a reporter of tests.	
+Reporter-class	Stub object for managing a reporter of tests.	
+shows_message	Expectation: does expression show a message?	
+SilentReporter	Test reporter: gather all errors silently.	
+SilentReporter-class	Test reporter: gather all errors silently.	
+skip	Skip a test.	
+skip_on_cran	Skip a test.	
+StopReporter	Test reporter: stop on error.	
+StopReporter-class	Test reporter: stop on error.	
+SummaryReporter	Test reporter: summary of errors.	
+SummaryReporter-class	Test reporter: summary of errors.	
+takes_less_than	Expectation: does expression take less than a fixed amount of time to run?	
+TapReporter	Test reporter: TAP format.	
+TapReporter-class	Test reporter: TAP format.	
+TeamcityReporter	Test reporter: Teamcity format.	
+TeamcityReporter-class	Test reporter: Teamcity format.	
+testthat	R package to make testing fun!	
+test_check	Run all tests in an installed package	
+test_dir	Run all of the tests in a directory.	
+test_file	Run all tests in specified file.	
+test_package	Run all tests in an installed package	
+test_that	Create a test.	
+throws_error	Expectation: does expression throw an error?	
+watch	Watch a directory for changes (additions, deletions & modifications).	
+with_mock	Mock functions in a package.	

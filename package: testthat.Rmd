@@ -4,7 +4,7 @@ author: "Craig Parman"
 date: "3/24/2015"
 output: html_document
 ---
-
+ 
 
 Conditions for expect_that function
 

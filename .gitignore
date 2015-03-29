@@ -1,5 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-References
+quickcheck_RMD_cache
+quickcheck_RMD_files
 package_quickcheck.html
