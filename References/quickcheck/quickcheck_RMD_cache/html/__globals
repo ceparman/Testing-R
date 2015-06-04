@@ -1,0 +1,23 @@
+unnamed-chunk-2	expect_identical	identity	test_that	x
+unnamed-chunk-3	c	expect_identical	factor	for	identity	list	rm	test_that
+unnamed-chunk-5	identical	identity	rinteger	test
+unnamed-chunk-6	identical	identity	rany	test
+unnamed-chunk-7	expect	rcharacter	stop	test
+unnamed-chunk-8	>	mean	rdouble	test
+unnamed-chunk-9	>	mean	rdouble	test
+unnamed-chunk-10	repro	test.out
+unnamed-chunk-11	rdouble
+unnamed-chunk-12	rdouble
+unnamed-chunk-13	rdouble
+unnamed-chunk-14	rdouble	runif
+unnamed-chunk-15	rdouble
+unnamed-chunk-16	rdouble	runif
+unnamed-chunk-17	~	rdouble
+unnamed-chunk-18	constant	rdouble
+unnamed-chunk-19	~	rdouble
+unnamed-chunk-20	select
+unnamed-chunk-21	all.equal	isTRUE
+unnamed-chunk-23	c	is.reciprocal.self.inverse	select	test
+unnamed-chunk-24	c	length	rdouble	sample
+unnamed-chunk-25	is.reciprocal.self.inverse	rdoublex	test
+unnamed-chunk-26	cars	plot

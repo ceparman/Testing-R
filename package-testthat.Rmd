@@ -1,0 +1,65 @@
+---
+title: 'package: testthat'
+author: "Craig Parman"
+date: "3/24/2015"
+output: html_document
+---
+ 
+
+Conditions for expect_that function
+
+Function                       | Description                              
+-------------------------------|-----------------------------------------------
+has_names                      | does object have names?
+is_false                       | is the object false?
+is_true                        | is the object true?
+is_identical_to                | is the object identical to another?
+is_less_than                   | is returned value less or greater than specified value?
+is_more_than                   | is returned value less or greater than specified value?
+is_null                        | is the object NULL?
+matches                        | does string match regular expression?
+
+is_a                           | does the object inherit from a class?
+is_equivalent_to               | is the object equivalent to a value? This expectation tests for equivalency: are two objects equal once their attributes have been removed.
+throws_error                   | does expression throw an error?
+shows_message                  | does expression show a message?
+gives_warning                  | does expression give a warning?
+takes_less_than                | does expression take less than a fixed amount of time to run?
+prints_text                    | does printed output match a regular expression?
+
+
+
+
+
+Expression Value Expectations
+
+Function                       | Description                              
+-------------------------------|-----------------------------------------------
+
+expect-compare                 | is returned value less or greater than specified value?
+expect_equal                   | is the object equal (with numerical tolerance) to a value?
+expect_equal_to_reference      | is the object equal to a reference value stored in a file?
+expect_equivalent              | is the object equivalent to a value? This expectation tests for equivalency: are two objects equal once their attributes have been removed.
+
+expect_false                   | is the object true/false?
+expect_identical               | is the object identical to another?
+expect_is                      | does the object inherit from a class?
+expect_less_than               | is returned value less or greater than specified value?
+expect_match                   | does string match regular expression?
+
+expect_more_than               | is returned value less or greater than specified value?
+
+expect_null                    | is the object NULL?
+expect_output                  | does printed output match a regular expression?
+expect_that                    | Expect that a condition holds.
+expect_true                    | is the object true/false?
+expect_error                   | does expression throw an error?
+
+expect_warning                 | does expression give a warning?
+expect_message                 | does expression show a message?
+expect_named                   | does object have names?
+equals                         | is the object equal (with numerical tolerance)
+equals_reference               | is the object equal to a reference value stored in a file?
+
+
+
